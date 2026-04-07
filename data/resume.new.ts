@@ -29,7 +29,7 @@ export type CertificationItem = {
 export const resume = {
   name: "Rohan Kumar",
   initials: "RK",
-  email: "221b308@juetguna.in",
+  email: "rkcool026@gmail.com",
   phone: "+91-9304795181",
   github: "https://github.com/Arcestor",
   linkedin: "https://linkedin.com/in/rohan-kumar-595415276",
