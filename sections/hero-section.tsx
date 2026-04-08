@@ -16,15 +16,17 @@ export function HeroSection() {
         <div className="flex max-w-3xl flex-col justify-between gap-12">
           <div className="space-y-6">
             <p className="font-mono text-sm uppercase tracking-[0.32em] text-muted">
-              Portfolio phase 3
+              Portfolio
             </p>
             <div className="space-y-4">
               <h1 className="max-w-2xl text-5xl font-semibold leading-tight text-balance sm:text-6xl lg:text-7xl">
                 {resume.name}
               </h1>
-              <p className="max-w-2xl text-lg leading-8 text-muted sm:text-xl">
-                {resume.heroSubtitle}
-              </p>
+              {resume.heroSubtitle ? (
+                <p className="max-w-2xl text-lg leading-8 text-muted sm:text-xl">
+                  {resume.heroSubtitle}
+                </p>
+              ) : null}
             </div>
             <p className="max-w-2xl text-base leading-8 text-foreground/80">
               {resume.summary}

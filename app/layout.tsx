@@ -16,9 +16,32 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+const siteTitle = `${resume.name} | ${resume.title}`;
+const siteDescription = `Portfolio of ${resume.name}, ${resume.title}.`;
+
 export const metadata: Metadata = {
-  title: `${resume.name} | Portfolio`,
-  description: resume.tagline,
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  title: siteTitle,
+  description: siteDescription,
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: siteTitle,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function RootLayout({
@@ -31,6 +54,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen cursor-none bg-background font-sans text-foreground antialiased`}
       >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none fixed inset-0 z-[2] bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_24%),radial-gradient(circle_at_80%_20%,rgba(56,189,248,0.08),transparent_26%)]"
+        />
+        <div aria-hidden="true" className="site-noise pointer-events-none fixed inset-0 z-[3]" />
         <SiteExperience>{children}</SiteExperience>
       </body>
     </html>

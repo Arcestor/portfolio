@@ -99,7 +99,7 @@ function Panel({
 
 function LandingPanel() {
   return (
-    <Panel kicker="Phase 3 / Hero" title="" description="">
+    <Panel kicker="Hero" title="" description="">
       <HeroIntro />
     </Panel>
   );
@@ -173,12 +173,14 @@ function HeroIntro() {
         </div>
 
         <div className="space-y-6">
-          <p
-            data-hero-subtitle
-            className="max-w-2xl text-sm uppercase tracking-[0.34em] text-white/62 sm:text-base"
-          >
-            {resume.heroSubtitle}
-          </p>
+          {resume.heroSubtitle ? (
+            <p
+              data-hero-subtitle
+              className="max-w-2xl text-sm uppercase tracking-[0.34em] text-white/62 sm:text-base"
+            >
+              {resume.heroSubtitle}
+            </p>
+          ) : null}
           <div data-hero-actions className="flex flex-wrap gap-3">
             <Link
               href="/about"
@@ -324,7 +326,7 @@ function ContactPanel() {
         </div>
 
         <div className="flex flex-col justify-between border border-white/10 bg-white/[0.03] p-6">
-          <p className="text-sm uppercase tracking-[0.22em] text-white/50">Phase 3 in place</p>
+          <p className="text-sm uppercase tracking-[0.22em] text-white/50">Contact</p>
           <p className="max-w-md text-lg leading-8 text-white/75">
             The hero and about structures are now aligned with the portfolio direction, with the
             homepage leading into the profile and contact flow.
