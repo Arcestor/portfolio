@@ -33,6 +33,7 @@ export function SiteNav() {
       >
         <Link
           href="/"
+          aria-label={`${resume.name} home`}
           className="flex items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-white/90 sm:text-sm"
           data-cursor="hover"
         >
@@ -40,7 +41,6 @@ export function SiteNav() {
             {resume.initials}
           </span>
           <span className="hidden sm:inline">{resume.name}</span>
-          <span className="sm:hidden">Work</span>
         </Link>
 
         <nav className="flex items-center gap-1 text-[10px] uppercase tracking-[0.24em] text-white/55 sm:gap-2 sm:text-xs sm:tracking-[0.28em]">

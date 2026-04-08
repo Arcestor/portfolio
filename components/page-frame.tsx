@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { RedirectHomeOnReload } from "@/components/redirect-home-on-reload";
 import { SiteNav } from "@/components/site-nav";
 
 type PageFrameProps = {
@@ -16,6 +17,7 @@ export function PageFrame({
 }: PageFrameProps) {
   return (
     <>
+      <RedirectHomeOnReload />
       <SiteNav />
       <main className="min-h-screen bg-background px-4 pb-16 pt-28 text-foreground sm:px-8 sm:pt-32">
         <div className="mx-auto max-w-7xl">

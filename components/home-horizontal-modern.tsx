@@ -13,8 +13,6 @@ import { resume } from "@/data/resume";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const panelCount = resume.projects.length + 3;
-
 export function HomeHorizontalModern() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -113,7 +111,7 @@ export function HomeHorizontalModern() {
             ref={trackRef}
             className="flex min-h-screen flex-col lg:h-screen lg:min-h-0 lg:flex-row"
           >
-            <HeroPanel panelCount={panelCount} />
+            <HeroPanel />
             {resume.projects.map((project, index) => (
               <ProjectPanel key={project.title} project={project} index={index} />
             ))}

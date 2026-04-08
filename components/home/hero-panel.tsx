@@ -7,7 +7,7 @@ import { ArrowUpRightIcon } from "@/components/home/icons";
 import { MetricCard, PanelFrame, StatTile } from "@/components/home/shared";
 import { resume } from "@/data/resume";
 
-export function HeroPanel({ panelCount }: { panelCount: number }) {
+export function HeroPanel() {
   const heroRef = useRef<HTMLDivElement>(null);
   const heroLines = resume.name.split(" ");
 
@@ -18,7 +18,8 @@ export function HeroPanel({ panelCount }: { panelCount: number }) {
 
     const letters = heroRef.current.querySelectorAll("[data-hero-letter]");
     const blocks = heroRef.current.querySelectorAll("[data-hero-block]");
-    const arrow = heroRef.current.querySelector("[data-scroll-arrow]");
+    const horizontalArrow = heroRef.current.querySelector("[data-scroll-arrow-horizontal]");
+    const verticalArrow = heroRef.current.querySelector("[data-scroll-arrow-vertical]");
 
     const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
 
@@ -33,9 +34,19 @@ export function HeroPanel({ panelCount }: { panelCount: number }) {
       })
       .to(blocks, { y: 0, opacity: 1, stagger: 0.1, duration: 0.58 }, "-=0.25");
 
-    if (arrow) {
-      gsap.to(arrow, {
+    if (horizontalArrow) {
+      gsap.to(horizontalArrow, {
         x: 12,
+        repeat: -1,
+        yoyo: true,
+        duration: 0.9,
+        ease: "power1.inOut",
+      });
+    }
+
+    if (verticalArrow) {
+      gsap.to(verticalArrow, {
+        y: 8,
         repeat: -1,
         yoyo: true,
         duration: 0.9,
@@ -45,9 +56,7 @@ export function HeroPanel({ panelCount }: { panelCount: number }) {
 
     return () => {
       timeline.kill();
-      if (arrow) {
-        gsap.killTweensOf(arrow);
-      }
+      gsap.killTweensOf([horizontalArrow, verticalArrow]);
     };
   }, []);
 
@@ -116,14 +125,18 @@ export function HeroPanel({ panelCount }: { panelCount: number }) {
             className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.28em] text-white/44"
             data-hero-block
           >
-            <span className="inline-flex items-center gap-2">
+            <span className="hidden items-center gap-2 lg:inline-flex">
               <span>Scroll right</span>
-              <span data-scroll-arrow className="text-lg text-white/72">
+              <span data-scroll-arrow-horizontal className="text-lg text-white/72">
                 &rarr;
               </span>
             </span>
-            <span className="hidden h-px w-16 bg-white/16 sm:block" />
-            <span>{panelCount.toString().padStart(2, "0")} panels</span>
+            <span className="inline-flex items-center gap-2 lg:hidden">
+              <span>Scroll down</span>
+              <span data-scroll-arrow-vertical className="text-lg text-white/72">
+                &darr;
+              </span>
+            </span>
           </div>
         </div>
 

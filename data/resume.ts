@@ -84,14 +84,14 @@ export const resume = {
       "Zod",
       "ShadCN",
     ],
-    infra: ["AWS (EC2, S3)", "Docker", "Redis", "gRPC", "Git"],
+    infra: ["AWS (EC2, S3)", "Docker", "Redis", "Git"],
   },
   projects: [
     {
       title: "Federated Learning using MCP",
       tag: "AI / ML / Privacy",
       period: "Jan 2024 - Present",
-      stack: ["Python", "PyTorch", "gRPC", "Docker", "MCP"],
+      stack: ["Python", "PyTorch", "Docker", "MCP"],
       summary:
         "Privacy-preserving federated training across distributed nodes.",
       outcome:
@@ -102,7 +102,7 @@ export const resume = {
       accentFrom: "#56d364",
       accentTo: "#38bdf8",
       highlights: [
-        "gRPC-based client coordination",
+        "Distributed client coordination",
         "Dockerized multi-node simulation",
         "MCP-driven experiment control",
       ],
