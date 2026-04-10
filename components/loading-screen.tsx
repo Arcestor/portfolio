@@ -75,16 +75,22 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
       <div
         ref={nameRef}
-        className="flex flex-wrap gap-x-2 overflow-hidden text-4xl font-semibold uppercase sm:text-6xl lg:text-8xl"
+        className="flex flex-col gap-1 overflow-hidden text-4xl font-semibold uppercase leading-[0.9] sm:gap-2 sm:text-6xl lg:text-8xl"
       >
-        {resume.name.split("").map((letter, index) => (
-          <span
-            key={`${letter}-${index}`}
-            data-letter
-            className={letter === " " ? "w-4 sm:w-6" : "inline-block"}
-          >
-            {letter === " " ? "\u00A0" : letter}
-          </span>
+        {resume.name.split(" ").map((word, wordIndex) => (
+          <div key={word} className="overflow-hidden">
+            <div className="whitespace-nowrap">
+              {word.split("").map((letter, index) => (
+                <span
+                  key={`${wordIndex}-${letter}-${index}`}
+                  data-letter
+                  className="inline-block"
+                >
+                  {letter}
+                </span>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </div>
