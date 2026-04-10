@@ -13,7 +13,7 @@ export function PanelFrame({
   return (
     <section
       data-panel
-      className="relative flex min-h-screen w-full shrink-0 flex-col overflow-hidden border-b border-white/10 px-4 pb-6 pt-20 sm:px-6 sm:pb-8 sm:pt-24 lg:w-screen lg:border-b-0 lg:border-r lg:px-8 lg:pb-8 lg:pt-24 xl:px-10"
+      className="relative flex min-h-screen w-full shrink-0 flex-col overflow-hidden border-b border-white/10 px-4 pb-6 pt-20 sm:px-6 sm:pb-8 sm:pt-20 lg:w-screen lg:border-b-0 lg:border-r lg:px-8 lg:pb-8 lg:pt-24 xl:px-10"
     >
       <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_28%),radial-gradient(circle_at_85%_15%,rgba(14,165,233,0.14),transparent_26%),linear-gradient(160deg,rgba(255,255,255,0.04),transparent_48%),linear-gradient(180deg,#06080d,#040507)]" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:88px_88px] opacity-20" />

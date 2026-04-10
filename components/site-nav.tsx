@@ -23,7 +23,7 @@ export function SiteNav() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-5">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-0 sm:px-6 sm:pt-0 lg:pt-5">
       <div
         className={`mx-auto flex max-w-7xl items-center justify-between rounded-full border px-4 py-2.5 transition duration-300 sm:px-6 ${
           scrolled

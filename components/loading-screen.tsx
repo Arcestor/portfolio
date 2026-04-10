@@ -5,16 +5,21 @@ import gsap from "gsap";
 import { resume } from "@/data/resume";
 
 type LoadingScreenProps = {
-  visible: boolean;
+  onComplete: () => void;
 };
 
-export function LoadingScreen({ visible }: LoadingScreenProps) {
+export function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLSpanElement>(null);
   const nameRef = useRef<HTMLDivElement>(null);
+  const onCompleteRef = useRef(onComplete);
 
   useEffect(() => {
-    if (!visible || !overlayRef.current || !counterRef.current || !nameRef.current) {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
+
+  useEffect(() => {
+    if (!overlayRef.current || !counterRef.current || !nameRef.current) {
       return;
     }
 
@@ -50,17 +55,18 @@ export function LoadingScreen({ visible }: LoadingScreenProps) {
         duration: 0.8,
         ease: "power4.inOut",
         delay: 0.15,
+        onComplete: () => onCompleteRef.current(),
       });
 
     return () => {
       timeline.kill();
     };
-  }, [visible]);
+  }, []);
 
   return (
     <div
       ref={overlayRef}
-      className="pointer-events-none fixed inset-0 z-[120] flex flex-col justify-between bg-black px-6 py-8 text-white sm:px-10 sm:py-10"
+      className="pointer-events-none fixed inset-0 z-[120] flex flex-col justify-between overflow-hidden bg-black px-6 py-8 text-white sm:px-10 sm:py-10"
     >
       <div className="flex items-start justify-between text-xs uppercase tracking-[0.4em] text-white/50">
         <span>Loading</span>

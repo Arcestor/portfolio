@@ -80,7 +80,7 @@ export function HeroPanel() {
             <div className="overflow-hidden">
               <h1 className="flex flex-col text-[clamp(3rem,8.8vw,6.6rem)] font-semibold uppercase leading-[0.84] tracking-[-0.07em] text-white">
                 {heroLines.map((line, lineIndex) => (
-                  <span key={line} className="block">
+                  <span key={line} className="block whitespace-nowrap">
                     {line.split("").map((letter, index) => (
                       <span
                         key={`${lineIndex}-${letter}-${index}`}
